@@ -47,6 +47,7 @@ export default function App() {
   );
   const [notice, setNotice] = useState<NoticeState | null>(null);
   const [analystOpen, setAnalystOpen] = useState(false);
+  const [catalogSearchQuery, setCatalogSearchQuery] = useState('');
   const [contributedDatasets, setContributedDatasets] = useState<DatasetItem[]>(
     []
   );
@@ -84,7 +85,17 @@ export default function App() {
     if (page !== 'insights') {
       setSelectedInsightId(null);
     }
+    if (page !== 'catalog') {
+      setCatalogSearchQuery('');
+    }
     window.location.hash = page === 'home' ? 'home' : page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const searchCatalog = (query: string) => {
+    setCatalogSearchQuery(query);
+    setCurrentPage('catalog');
+    window.location.hash = 'catalog';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -129,6 +140,7 @@ export default function App() {
           <HomePage
             datasets={allDatasets}
             onNavigate={navigateTo}
+            onSearchCatalog={searchCatalog}
             onSelectDataset={openDataset}
             onSelectInsight={openInsight}
           />
@@ -137,6 +149,7 @@ export default function App() {
         {currentPage === 'catalog' && (
           <CatalogPage
             datasets={allDatasets}
+            initialSearchQuery={catalogSearchQuery}
             onSelectDataset={openDataset}
           />
         )}

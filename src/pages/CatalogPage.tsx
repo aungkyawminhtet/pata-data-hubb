@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { LayoutGrid, List, RotateCcw, Search } from 'lucide-react';
 import { DATASETS } from '../data/maeSaiData';
 import { AccessLevel, DatasetItem, DataType, SourceCategory } from '../types/hub';
@@ -6,11 +6,20 @@ import { AccessBadge } from '../components/AccessBadge';
 
 interface CatalogPageProps {
   datasets?: DatasetItem[];
+  initialSearchQuery?: string;
   onSelectDataset: (datasetId: string) => void;
 }
 
-export function CatalogPage({ datasets = DATASETS, onSelectDataset }: CatalogPageProps) {
-  const [searchQuery, setSearchQuery] = useState('');
+export function CatalogPage({
+  datasets = DATASETS,
+  initialSearchQuery = '',
+  onSelectDataset,
+}: CatalogPageProps) {
+  const [searchQuery, setSearchQuery] = useState(initialSearchQuery);
+
+  useEffect(() => {
+    setSearchQuery(initialSearchQuery);
+  }, [initialSearchQuery]);
   const [selectedType, setSelectedType] = useState<string>('All');
   const [selectedSource, setSelectedSource] = useState<string>('All');
   const [selectedAccess, setSelectedAccess] = useState<string>('All');

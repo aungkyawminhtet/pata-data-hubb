@@ -2,6 +2,7 @@
 
 @theme {
   --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
   --color-hub-green: #406246;
@@ -10,6 +11,15 @@
   --color-hub-bg: #F7F8F5;
   --color-hub-ink: #243329;
   --color-hub-muted: #66736A;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @layer base {
@@ -24,8 +34,22 @@
     font-family: var(--font-display);
   }
 
+  .font-editorial {
+    font-family: var(--font-serif);
+  }
+
   .tabular-nums {
     font-variant-numeric: tabular-nums;
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 34s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
   }
 
   @media (prefers-reduced-motion: reduce) {
