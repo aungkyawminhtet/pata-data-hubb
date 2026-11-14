@@ -105,7 +105,7 @@ export function InsightsPage({
 
           {/* Workspace Mode Selector */}
           <div
-            className="inline-flex flex-wrap items-center gap-1 bg-[#f5f0de] border border-[#DED4B2] rounded-lg p-1"
+            className="inline-flex flex-wrap items-center gap-1 bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-1"
             role="tablist"
             aria-label="Insights and analysis sections"
           >
@@ -117,7 +117,7 @@ export function InsightsPage({
               className={`inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 workspaceTab === 'overview'
                   ? 'bg-[#406246] text-white'
-                  : 'text-[#243329] hover:bg-[#E8E0C5]'
+                  : 'text-[#243329] hover:bg-[#ECEFE9]'
               }`}
             >
               <BarChart3 className="w-4 h-4" aria-hidden="true" />
@@ -132,7 +132,7 @@ export function InsightsPage({
               className={`inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 workspaceTab === 'scenario-model'
                   ? 'bg-[#406246] text-white'
-                  : 'text-[#243329] hover:bg-[#E8E0C5]'
+                  : 'text-[#243329] hover:bg-[#ECEFE9]'
               }`}
             >
               <SlidersHorizontal className="w-4 h-4" aria-hidden="true" />
@@ -147,7 +147,7 @@ export function InsightsPage({
               className={`inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 workspaceTab === 'feedback-analyzer'
                   ? 'bg-[#406246] text-white'
-                  : 'text-[#243329] hover:bg-[#E8E0C5]'
+                  : 'text-[#243329] hover:bg-[#ECEFE9]'
               }`}
             >
               <MessageSquareText className="w-4 h-4" aria-hidden="true" />
@@ -162,7 +162,7 @@ export function InsightsPage({
               className={`inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                 workspaceTab === 'ai-analyst'
                   ? 'bg-[#406246] text-white'
-                  : 'text-[#243329] hover:bg-[#E8E0C5]'
+                  : 'text-[#243329] hover:bg-[#ECEFE9]'
               }`}
             >
               <Bot className="w-4 h-4" aria-hidden="true" />
@@ -176,7 +176,7 @@ export function InsightsPage({
       {/* TAB 1: Charts & Insights */}
       {workspaceTab === 'overview' && (
         <div className="space-y-10">
-          <section className="bg-[#FAF7ED] border border-[#D4C9A8] rounded-lg p-6 sm:p-8 space-y-6">
+          <section className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-6 sm:p-8 space-y-6">
             <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
               <div className="space-y-1 max-w-2xl">
                 <h2 className="font-display text-xl sm:text-2xl font-bold text-[#243329]">
@@ -246,8 +246,8 @@ export function InsightsPage({
                     onMouseLeave={() => setHoveredIdx(null)}
                     className={`p-3 rounded-md border transition-colors ${
                       isHighlighted
-                        ? 'bg-[#F7F8F5] border-[#CFD5CB]'
-                        : 'bg-white border-transparent'
+                        ? 'bg-[#F4F6F3] border-[#CFD5CB]'
+                        : 'bg-[#FAFAF8] border-transparent'
                     }`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
@@ -309,14 +309,14 @@ export function InsightsPage({
               {INSIGHTS.map((insight) => (
                 <article
                   key={insight.id}
-                  className="bg-[#FAF7ED] border border-[#D4C9A8] rounded-lg overflow-hidden flex flex-col justify-between"
+                  className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg overflow-hidden flex flex-col justify-between"
                 >
                   <div>
-                    <div className="bg-[#406246] text-white px-5 py-3.5 space-y-1">
-                      <div className="text-xs font-medium text-[#f5f0de]">
+                    <div className="bg-[#F4F6F3] border-b border-[#ECEFE9] px-5 py-3.5 space-y-1">
+                      <div className="text-xs font-medium text-[#406246]">
                         {insight.category} · {insight.timeContext}
                       </div>
-                      <h3 className="font-display text-base font-bold text-white leading-snug">
+                      <h3 className="font-display text-base font-bold text-[#243329] leading-snug">
                         {insight.title}
                       </h3>
                     </div>
@@ -340,7 +340,7 @@ export function InsightsPage({
                         </p>
                       </div>
 
-                      <div className="bg-[#f5f0de] border border-[#DED4B2] rounded-md p-3">
+                      <div className="bg-[#F4F6F3] border border-[#E3E6DF] rounded-md p-3">
                         <div className="text-xs font-semibold text-[#406246]">
                           Recommended action
                         </div>
@@ -371,7 +371,7 @@ export function InsightsPage({
       {/* TAB 2: Demand Planner */}
       {workspaceTab === 'scenario-model' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          <section className="lg:col-span-5 bg-[#f5f0de] border border-[#DED4B2] rounded-lg p-6 space-y-5">
+          <section className="lg:col-span-5 bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-6 space-y-5">
             <div className="space-y-1">
               <h2 className="font-display text-xl font-bold text-[#243329]">
                 Demand &amp; Congestion Planner
@@ -470,7 +470,7 @@ export function InsightsPage({
 
           <section className="lg:col-span-7 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="bg-white border border-[#E3E6DF] rounded-lg p-4">
+              <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-4">
                 <div className="text-xs text-[#66736A]">Peak Load</div>
                 <div className="font-display text-2xl font-bold text-[#243329] tabular-nums mt-1">
                   {scenarioResult.adjustedPeakScore}
@@ -481,7 +481,7 @@ export function InsightsPage({
                 </div>
               </div>
 
-              <div className="bg-white border border-[#E3E6DF] rounded-lg p-4">
+              <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-4">
                 <div className="text-xs text-[#66736A]">Afternoon Headroom</div>
                 <div className="font-display text-2xl font-bold text-[#406246] tabular-nums mt-1">
                   {scenarioResult.afternoonOpportunityScore}
@@ -492,7 +492,7 @@ export function InsightsPage({
                 </div>
               </div>
 
-              <div className="bg-[#f5f0de] border border-[#E2D9BA] rounded-lg p-4">
+              <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-4">
                 <div className="text-xs text-[#406246] font-semibold">
                   Season Profile
                 </div>
@@ -502,7 +502,7 @@ export function InsightsPage({
               </div>
             </div>
 
-            <div className="bg-white border border-[#E3E6DF] rounded-lg p-6 space-y-4">
+            <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-6 space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <h3 className="font-display text-base font-bold text-[#243329]">
                   Hourly Load Distribution
@@ -542,7 +542,7 @@ export function InsightsPage({
               </div>
             </div>
 
-            <div className="bg-white border border-[#E3E6DF] rounded-lg p-6 space-y-3">
+            <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-6 space-y-3">
               <div className="text-xs font-semibold text-[#406246]">
                 Recommended Action
               </div>
@@ -589,7 +589,7 @@ export function InsightsPage({
       {/* TAB 3: Feedback Analyzer */}
       {workspaceTab === 'feedback-analyzer' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          <section className="lg:col-span-6 bg-white border border-[#E3E6DF] rounded-lg p-6 space-y-5">
+          <section className="lg:col-span-6 bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-6 space-y-5">
             <div className="space-y-1">
               <h2 className="font-display text-xl font-bold text-[#243329]">
                 Visitor Feedback Analyzer
@@ -612,7 +612,7 @@ export function InsightsPage({
                     className={`px-3 py-1.5 text-xs font-medium rounded-md border transition-colors cursor-pointer ${
                       feedbackInput === sample.text
                         ? 'bg-[#406246] text-white border-[#406246]'
-                        : 'bg-[#F7F8F5] text-[#243329] border-[#D7DDD3] hover:bg-[#f5f0de]'
+                        : 'bg-[#F4F6F3] text-[#243329] border-[#D7DDD3] hover:bg-white'
                     }`}
                   >
                     {sample.label}
@@ -634,12 +634,12 @@ export function InsightsPage({
                 value={feedbackInput}
                 onChange={(e) => setFeedbackInput(e.target.value)}
                 placeholder="Paste a visitor note about Mae Sai transit, opening hours, QR payment, or trails..."
-                className="w-full px-3.5 py-2.5 text-sm bg-[#F7F8F5] border border-[#D7DDD3] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white"
+                className="w-full px-3.5 py-2.5 text-sm bg-[#F4F6F3] border border-[#D7DDD3] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white"
               />
             </div>
           </section>
 
-          <section className="lg:col-span-6 bg-white border border-[#E3E6DF] rounded-lg p-6 space-y-5">
+          <section className="lg:col-span-6 bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-6 space-y-5">
             <div className="flex items-center justify-between gap-2 pb-3 border-b border-[#ECEFE9]">
               <h3 className="font-display text-lg font-bold text-[#243329]">
                 Classification Result
@@ -696,7 +696,7 @@ export function InsightsPage({
               )}
             </div>
 
-            <div className="bg-[#f5f0de] border border-[#E2D9BA] rounded-md p-4 space-y-2">
+            <div className="bg-[#F4F6F3] border border-[#E3E6DF] rounded-md p-4 space-y-2">
               <div className="text-xs font-semibold text-[#406246]">
                 Suggested Action
               </div>
@@ -736,7 +736,7 @@ export function InsightsPage({
           aria-modal="true"
           aria-labelledby="insight-modal-title"
         >
-          <div className="bg-white border border-[#E3E6DF] rounded-lg max-w-xl w-full p-6 sm:p-8 space-y-5 max-h-[90vh] overflow-y-auto">
+          <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg max-w-xl w-full p-6 sm:p-8 space-y-5 max-h-[90vh] overflow-y-auto">
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-1">
                 <div className="text-xs font-semibold text-[#406246]">
@@ -763,7 +763,7 @@ export function InsightsPage({
               {activeInsight.detailSummary}
             </p>
 
-            <div className="bg-[#f5f0de] border border-[#E2D9BA] rounded-md p-4 space-y-1">
+            <div className="bg-[#F4F6F3] border border-[#E3E6DF] rounded-md p-4 space-y-1">
               <div className="text-xs font-semibold text-[#406246]">
                 Stakeholder Focus
               </div>
@@ -788,7 +788,7 @@ export function InsightsPage({
                         setActiveInsight(null);
                         onSelectDataset(ds.id);
                       }}
-                      className="w-full text-left p-3 bg-[#F7F8F5] hover:bg-[#f5f0de] border border-[#E3E6DF] rounded-md flex items-center justify-between gap-3 transition-colors cursor-pointer"
+                      className="w-full text-left p-3 bg-[#F4F6F3] hover:bg-white border border-[#E3E6DF] rounded-md flex items-center justify-between gap-3 transition-colors cursor-pointer"
                     >
                       <div>
                         <div className="text-sm font-semibold text-[#243329]">

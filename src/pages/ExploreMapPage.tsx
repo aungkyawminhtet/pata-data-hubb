@@ -163,7 +163,7 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
         </div>
 
         {/* Hero Banner Card */}
-        <div className="bg-white border border-[#E3E6DF] rounded-2xl overflow-hidden">
+        <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-2xl overflow-hidden">
           <div className="relative h-64 sm:h-80 lg:h-96 bg-[#1B2820]">
             <img
               src={activePlace.image}
@@ -327,7 +327,7 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
                 </div>
 
                 {/* Source Dataset Card */}
-                <div className="bg-white border border-[#E3E6DF] rounded-xl p-5 space-y-3">
+                <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-xl p-5 space-y-3">
                   <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#406246]">
                     <Database className="w-3.5 h-3.5" aria-hidden="true" />
                     <span>Linked Hub Dataset</span>
@@ -362,7 +362,7 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
               {relatedPlaces.map((place) => (
                 <article
                   key={place.id}
-                  className="bg-white border border-[#E3E6DF] rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow"
+                  className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow"
                 >
                   <button
                     type="button"
@@ -427,7 +427,7 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
       </div>
 
       {/* Filter Bar Card */}
-      <div className="bg-white border border-[#E3E6DF] rounded-2xl p-4 sm:p-5 space-y-4 shadow-2xs">
+      <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-2xl p-4 sm:p-5 space-y-4 shadow-2xs">
         {/* Single Row: Search + Subdistrict + Sort + Filters Button */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3">
           <div className="relative flex-1">
@@ -622,7 +622,7 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
 
       {/* Places Grid */}
       {filteredPlaces.length === 0 ? (
-        <div className="bg-white border border-[#E3E6DF] rounded-2xl p-12 text-center space-y-4">
+        <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-2xl p-12 text-center space-y-4">
           <div className="font-editorial text-xl font-bold text-[#243329]">
             No places match your current filters
           </div>
@@ -643,7 +643,7 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
           {filteredPlaces.map((place) => (
             <article
               key={place.id}
-              className="bg-white border border-[#E3E6DF] rounded-2xl overflow-hidden flex flex-col justify-between shadow-2xs hover:shadow-md transition-shadow"
+              className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-2xl overflow-hidden flex flex-col justify-between shadow-2xs hover:shadow-md transition-shadow"
             >
               {/* Top Image with Category & Distance Overlays */}
               <button

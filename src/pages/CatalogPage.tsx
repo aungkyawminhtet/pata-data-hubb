@@ -82,8 +82,8 @@ export function CatalogPage({
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-7">
-        {/* Search and Filter Bar on Warm Secondary Cream */}
-        <div className="bg-[#f5f0de] border border-[#DED4B2] rounded-lg p-4 sm:p-5 space-y-4">
+        {/* Search and Filter Bar on Soft White */}
+        <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-4 sm:p-5 space-y-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-3">
             <div className="lg:col-span-5 relative">
               <label htmlFor="catalog-search" className="sr-only">
@@ -99,7 +99,7 @@ export function CatalogPage({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search title, sub-district, or source..."
-                className="w-full pl-10 pr-4 py-2.5 text-sm bg-[#FAF7ED] border border-[#D4C9A8] rounded-md text-[#243329] placeholder:text-[#66736A] focus:outline-none focus:border-[#406246] focus:bg-white"
+                className="w-full pl-10 pr-4 py-2.5 text-sm bg-[#F4F6F3] border border-[#D7DDD3] rounded-md text-[#243329] placeholder:text-[#66736A] focus:outline-none focus:border-[#406246] focus:bg-white"
               />
             </div>
 
@@ -112,7 +112,7 @@ export function CatalogPage({
                   id="filter-type"
                   value={selectedType}
                   onChange={(e) => setSelectedType(e.target.value)}
-                  className="w-full px-3 py-2.5 text-sm bg-[#FAF7ED] border border-[#D4C9A8] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white cursor-pointer"
+                  className="w-full px-3 py-2.5 text-sm bg-[#F4F6F3] border border-[#D7DDD3] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white cursor-pointer"
                 >
                   {dataTypes.map((type) => (
                     <option key={type} value={type}>
@@ -130,7 +130,7 @@ export function CatalogPage({
                   id="filter-source"
                   value={selectedSource}
                   onChange={(e) => setSelectedSource(e.target.value)}
-                  className="w-full px-3 py-2.5 text-sm bg-[#FAF7ED] border border-[#D4C9A8] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white cursor-pointer"
+                  className="w-full px-3 py-2.5 text-sm bg-[#F4F6F3] border border-[#D7DDD3] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white cursor-pointer"
                 >
                   {sourceCategories.map((src) => (
                     <option key={src} value={src}>
@@ -148,7 +148,7 @@ export function CatalogPage({
                   id="filter-access"
                   value={selectedAccess}
                   onChange={(e) => setSelectedAccess(e.target.value)}
-                  className="w-full px-3 py-2.5 text-sm bg-[#FAF7ED] border border-[#D4C9A8] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white cursor-pointer"
+                  className="w-full px-3 py-2.5 text-sm bg-[#F4F6F3] border border-[#D7DDD3] rounded-md text-[#243329] focus:outline-none focus:border-[#406246] focus:bg-white cursor-pointer"
                 >
                   {accessLevels.map((lvl) => (
                     <option key={lvl} value={lvl}>
@@ -160,7 +160,7 @@ export function CatalogPage({
             </div>
           </div>
 
-          <div className="pt-3 border-t border-[#DFD5B5] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="pt-3 border-t border-[#ECEFE9] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Quick access level filter">
               {accessLevels.map((lvl) => {
                 const active = selectedAccess === lvl;
@@ -172,7 +172,7 @@ export function CatalogPage({
                     className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
                       active
                         ? 'bg-[#406246] text-white'
-                        : 'bg-[#FAF7ED] text-[#243329] hover:bg-white border border-[#D4C9A8]'
+                        : 'bg-[#F4F6F3] text-[#243329] hover:bg-white border border-[#D7DDD3]'
                     }`}
                   >
                     {lvl === 'All' ? 'All' : lvl}
@@ -197,7 +197,7 @@ export function CatalogPage({
                 <strong>{filteredDatasets.length}</strong> of {datasets.length} datasets
               </span>
 
-              <div className="inline-flex items-center bg-[#FAF7ED] border border-[#D4C9A8] rounded-md p-0.5">
+              <div className="inline-flex items-center bg-[#F4F6F3] border border-[#D7DDD3] rounded-md p-0.5">
                 <button
                   type="button"
                   onClick={() => setViewMode('grid')}
@@ -231,7 +231,7 @@ export function CatalogPage({
 
         {/* Results */}
         {filteredDatasets.length === 0 ? (
-          <div className="bg-[#f5f0de] border border-[#DED4B2] rounded-lg p-12 text-center space-y-4">
+          <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg p-12 text-center space-y-4">
             <div className="font-display text-lg font-semibold text-[#243329]">
               No matching datasets found
             </div>
@@ -254,10 +254,10 @@ export function CatalogPage({
                 key={dataset.id}
                 type="button"
                 onClick={() => onSelectDataset(dataset.id)}
-                className="text-left bg-[#FAF7ED] border border-[#D4DDD6] hover:border-[#406246] rounded-lg overflow-hidden transition-colors flex flex-col justify-between cursor-pointer focus-visible:outline-2 focus-visible:outline-[#406246] group"
+                className="text-left bg-[#FAFAF8] border border-[#E3E6DF] hover:border-[#406246] rounded-lg overflow-hidden transition-colors flex flex-col justify-between cursor-pointer focus-visible:outline-2 focus-visible:outline-[#406246] group"
               >
                 <div>
-                  <div className="bg-[#f5f0de] border-b border-[#E2D9BA] px-5 py-3 flex items-center justify-between gap-2">
+                  <div className="bg-[#F4F6F3] border-b border-[#ECEFE9] px-5 py-3 flex items-center justify-between gap-2">
                     <span className="text-xs font-semibold text-[#406246] truncate">
                       {dataset.dataType} · {dataset.subDistrict}
                     </span>
@@ -275,7 +275,7 @@ export function CatalogPage({
                   </div>
                 </div>
 
-                <div className="px-5 py-3 bg-[#EFEAD6] border-t border-[#E2D9BA] flex items-center justify-between gap-2 text-xs text-[#243329]">
+                <div className="px-5 py-3 bg-[#F4F6F3] border-t border-[#ECEFE9] flex items-center justify-between gap-2 text-xs text-[#243329]">
                   <span className="truncate font-medium">{dataset.sourceLabel}</span>
                   <span className="font-mono tabular-nums text-[#406246] shrink-0">
                     {dataset.lastUpdated}
@@ -285,7 +285,7 @@ export function CatalogPage({
             ))}
           </div>
         ) : (
-          <div className="bg-[#FAF7ED] border border-[#D4C9A8] rounded-lg overflow-hidden">
+          <div className="bg-[#FAFAF8] border border-[#E3E6DF] rounded-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
@@ -297,12 +297,12 @@ export function CatalogPage({
                     <th className="py-3.5 px-4 whitespace-nowrap">Access</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E2D9BA] text-sm">
+                <tbody className="divide-y divide-[#ECEFE9] text-sm">
                   {filteredDatasets.map((dataset) => (
                     <tr
                       key={dataset.id}
                       onClick={() => onSelectDataset(dataset.id)}
-                      className="hover:bg-[#f5f0de] transition-colors cursor-pointer"
+                      className="hover:bg-[#F4F6F3] transition-colors cursor-pointer"
                     >
                       <td className="py-3.5 px-4">
                         <div className="font-semibold text-[#243329] hover:text-[#406246]">

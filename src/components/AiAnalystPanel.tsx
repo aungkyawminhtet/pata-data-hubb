@@ -153,14 +153,14 @@ export function AiAnalystPanel({
 
   return (
     <div
-      className={`flex flex-col bg-white ${
+      className={`flex flex-col bg-[#FAFAF8] ${
         variant === 'embedded'
           ? 'border border-[#E3E6DF] rounded-lg min-h-[540px]'
           : 'h-full'
       }`}
     >
       {/* Header */}
-      <div className="px-5 py-4 border-b border-[#E3E6DF] flex items-center justify-between gap-3 bg-[#F7F8F5]">
+      <div className="px-5 py-4 border-b border-[#E3E6DF] flex items-center justify-between gap-3 bg-[#F4F6F3]">
         <div className="flex items-center gap-3 min-w-0">
           <div className="w-8 h-8 rounded-full bg-[#406246] text-white flex items-center justify-center shrink-0">
             <Bot className="w-4 h-4" aria-hidden="true" />
