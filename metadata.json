@@ -1,0 +1,6 @@
+{
+  "name": "Together Mae Sai",
+  "description": "A shared tourism data hub for Mae Sai bringing together scattered local information, provenance metadata, and community insights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
