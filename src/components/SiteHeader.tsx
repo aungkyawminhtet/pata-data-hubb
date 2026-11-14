@@ -25,7 +25,7 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
   const isDataActive = currentPage === 'catalog' || currentPage === 'detail';
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-[#E3E6DF]">
+    <header className="sticky top-0 z-40 bg-[#f5f0de] border-b border-[#DED4B2]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-8">
         {/* Zone 1: Single-element Brand Wordmark */}
         <a
@@ -34,7 +34,7 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
             e.preventDefault();
             handleNav('home');
           }}
-          className="font-display text-lg font-bold tracking-tight text-[#406246] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#406246]"
+          className="font-display text-lg font-bold tracking-tight text-[#243329] hover:text-[#406246] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#406246]"
         >
           Together Mae Sai
         </a>
@@ -55,7 +55,7 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
                 className={`relative py-1 text-sm font-medium transition-colors whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#406246] ${
                   active
                     ? 'text-[#406246] font-semibold'
-                    : 'text-[#66736A] hover:text-[#243329]'
+                    : 'text-[#243329]/75 hover:text-[#243329]'
                 }`}
               >
                 {link.label}
@@ -77,7 +77,7 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
             onClick={() => handleNav('contribute')}
             className={`hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#406246] ${
               currentPage === 'contribute'
-                ? 'bg-[#243329] text-white'
+                ? 'bg-[#243329] text-[#f5f0de]'
                 : 'bg-[#406246] text-white hover:bg-[#335038]'
             }`}
           >
@@ -87,7 +87,7 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-[#243329] hover:bg-[#F7F8F5] focus-visible:outline-2 focus-visible:outline-[#406246]"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-[#243329] hover:bg-[#E8E0C5] focus-visible:outline-2 focus-visible:outline-[#406246]"
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileOpen}
           >
@@ -98,7 +98,7 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-[#E3E6DF] px-4 py-4 space-y-1">
+        <div className="md:hidden bg-[#f5f0de] border-t border-[#DED4B2] px-4 py-4 space-y-1">
           {navLinks.map((link) => {
             const active =
               link.id === 'catalog' ? isDataActive : currentPage === link.id;
@@ -112,8 +112,8 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
                 }}
                 className={`block px-3 py-2.5 rounded-md text-sm font-medium ${
                   active
-                    ? 'bg-[#f5f0de] text-[#406246] font-semibold'
-                    : 'text-[#243329] hover:bg-[#F7F8F5]'
+                    ? 'bg-[#406246] text-white font-semibold'
+                    : 'text-[#243329] hover:bg-[#E8E0C5]'
                 }`}
               >
                 {link.label}
@@ -128,7 +128,7 @@ export function SiteHeader({ currentPage, onNavigate }: SiteHeaderProps) {
             }}
             className={`block px-3 py-2.5 rounded-md text-sm font-medium ${
               currentPage === 'contribute'
-                ? 'bg-[#243329] text-white'
+                ? 'bg-[#243329] text-[#f5f0de]'
                 : 'bg-[#406246] text-white'
             }`}
           >

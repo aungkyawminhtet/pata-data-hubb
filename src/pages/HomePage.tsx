@@ -426,13 +426,13 @@ export function HomePage({
             <div className="space-y-2.5">
               <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#406246]">
                 <MapPin className="w-4 h-4" aria-hidden="true" />
-                <span>Data Product</span>
+                <span>Verified Directory</span>
               </div>
               <h2 className="font-display text-xl font-bold text-[#243329]">
-                Explore Mae Sai Map
+                Explore Mae Sai
               </h2>
               <p className="text-sm text-[#243329] leading-relaxed">
-                Browse key Mae Sai landmarks, hours, and corridors linked directly to their source datasets.
+                Discover 24 verified landmarks, mountain coffee viewpoints, local eateries, homestays, and community artisans.
               </p>
             </div>
             <button
@@ -440,7 +440,7 @@ export function HomePage({
               onClick={() => onNavigate('explore-map')}
               className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#406246] hover:bg-[#335038] text-white text-sm font-medium rounded-md transition-colors cursor-pointer"
             >
-              <span>Open District Map</span>
+              <span>Explore Mae Sai</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>

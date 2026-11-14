@@ -281,20 +281,23 @@ export function ContributePage({
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 space-y-10">
-      {/* Header */}
-      <div className="border-b border-[#E3E6DF] pb-5 space-y-1.5">
-        <div className="text-xs font-semibold text-[#406246]">
-          Contribute &amp; Connect
+    <div>
+      {/* Primary Forest Green Page Header */}
+      <div className="bg-[#243329] text-white border-b border-[#406246]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-1.5">
+          <div className="text-xs font-semibold uppercase tracking-wider text-[#f5f0de]">
+            Contribute &amp; Connect
+          </div>
+          <h1 className="font-display text-3xl font-bold text-white">
+            Contribute to Together Mae Sai
+          </h1>
+          <p className="text-sm sm:text-base text-[#D2DDD5] max-w-2xl">
+            Share local data through a stakeholder pathway or integrate directly using the JSON API.
+          </p>
         </div>
-        <h1 className="font-display text-3xl font-bold text-[#243329]">
-          Contribute to Together Mae Sai
-        </h1>
-        <p className="text-sm sm:text-base text-[#66736A] max-w-2xl">
-          Share local data through a stakeholder pathway or integrate directly using the JSON API.
-        </p>
       </div>
 
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-10">
       {/* Four Stakeholder Pathways */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {STAKEHOLDER_PATHWAYS.map((pathway) => {
@@ -302,22 +305,22 @@ export function ContributePage({
           return (
             <section
               key={pathway.id}
-              className="bg-white border border-[#E3E6DF] rounded-lg p-6 flex flex-col justify-between space-y-5"
+              className="bg-[#FAF7ED] border border-[#D4C9A8] rounded-lg overflow-hidden flex flex-col justify-between"
             >
-              <div className="space-y-4">
-                <div className="flex items-start justify-between gap-3">
+              <div>
+                <div className="bg-[#406246] text-white px-6 py-4 flex items-start justify-between gap-3">
                   <div className="space-y-1">
-                    <h2 className="font-display text-xl font-bold text-[#243329]">
+                    <h2 className="font-display text-lg font-bold text-white">
                       {pathway.title}
                     </h2>
-                    <p className="text-sm text-[#66736A]">{pathway.subtitle}</p>
+                    <p className="text-xs text-[#DCE5DE]">{pathway.subtitle}</p>
                   </div>
-                  <div className="w-10 h-10 rounded-md bg-[#f5f0de] border border-[#E2D9BA] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-md bg-[#f5f0de] flex items-center justify-center shrink-0">
                     <Icon className="w-5 h-5 text-[#406246]" aria-hidden="true" />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-[#ECEFE9]">
+                <div className="p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <h3 className="text-xs font-semibold text-[#406246]">
                       What you contribute
@@ -352,8 +355,8 @@ export function ContributePage({
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#ECEFE9] flex items-center justify-between gap-3">
-                <span className="text-xs text-[#66736A] truncate">
+              <div className="px-6 py-4 bg-[#f5f0de] border-t border-[#DED4B2] flex items-center justify-between gap-3">
+                <span className="text-xs font-medium text-[#243329] truncate">
                   {pathway.exampleFormats}
                 </span>
                 <button
@@ -370,7 +373,7 @@ export function ContributePage({
       </div>
 
       {/* API Data Contribution Section */}
-      <section className="bg-white border border-[#E3E6DF] rounded-lg p-6 sm:p-8 space-y-6">
+      <section className="bg-[#FAF7ED] border border-[#D4C9A8] rounded-lg p-6 sm:p-8 space-y-6">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#ECEFE9] pb-5">
           <div className="space-y-1 max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#406246]">
@@ -797,6 +800,7 @@ export function ContributePage({
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

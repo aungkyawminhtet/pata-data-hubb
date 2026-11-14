@@ -364,8 +364,8 @@ export function DatasetDetailPage({
       </div>
 
       {/* Dataset Header */}
-      <div className="bg-white border border-[#E3E6DF] rounded-lg p-6 sm:p-8 space-y-6">
-        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+      <div className="bg-[#FAF7ED] border border-[#D4C9A8] rounded-lg overflow-hidden">
+        <div className="p-6 sm:p-8 flex flex-col lg:flex-row lg:items-start justify-between gap-6">
           <div className="space-y-3 max-w-3xl">
             <div className="flex flex-wrap items-center gap-2.5 text-xs text-[#66736A]">
               <span className="font-semibold text-[#406246]">{dataset.category}</span>
@@ -381,7 +381,7 @@ export function DatasetDetailPage({
               {dataset.title}
             </h1>
 
-            <p className="text-sm sm:text-base text-[#66736A] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#56635A] leading-relaxed">
               {dataset.fullDescription}
             </p>
           </div>
@@ -418,7 +418,7 @@ export function DatasetDetailPage({
             <button
               type="button"
               onClick={handleViewSource}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white hover:bg-[#F7F8F5] text-[#243329] border border-[#CFD5CB] text-sm font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#f5f0de] hover:bg-[#E8E0C5] text-[#243329] border border-[#DED4B2] text-sm font-medium rounded-md transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               <ExternalLink className="w-4 h-4" aria-hidden="true" />
               <span>Source Info</span>
@@ -426,8 +426,8 @@ export function DatasetDetailPage({
           </div>
         </div>
 
-        {/* Provenance & Freshness Strip */}
-        <div className="pt-5 border-t border-[#ECEFE9] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        {/* Provenance & Freshness Strip on Secondary Cream */}
+        <div className="bg-[#f5f0de] border-t border-[#DED4B2] px-6 sm:px-8 py-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           <div className="space-y-1">
             <div className="text-[#66736A] flex items-center gap-1.5">
               <FileText className="w-3.5 h-3.5 text-[#406246]" aria-hidden="true" />
