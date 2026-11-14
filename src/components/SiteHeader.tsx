@@ -83,7 +83,7 @@ export function SiteHeader({
   const isDataActive = currentPage === 'catalog' || currentPage === 'detail';
 
   return (
-    <header className="sticky top-0 z-40 bg-[#f5f0de] border-b border-[#DED4B2]">
+    <header className="sticky top-0 z-40 bg-white border-b border-[#E3E6DF]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-6">
         {/* Brand Wordmark */}
         <a
@@ -141,7 +141,7 @@ export function SiteHeader({
             className={`inline-flex items-center justify-center w-9 h-9 rounded-full transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-[#406246] ${
               searchOpen
                 ? 'bg-[#406246] text-white'
-                : 'text-[#243329] hover:bg-[#E8E0C5]'
+                : 'text-[#243329] hover:bg-[#F7F8F5]'
             }`}
           >
             {searchOpen ? (
@@ -158,7 +158,7 @@ export function SiteHeader({
               setSearchOpen(false);
               setMobileOpen((prev) => !prev);
             }}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-[#243329] hover:bg-[#E8E0C5] focus-visible:outline-2 focus-visible:outline-[#406246]"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-[#243329] hover:bg-[#F7F8F5] focus-visible:outline-2 focus-visible:outline-[#406246]"
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileOpen}
           >
@@ -169,7 +169,7 @@ export function SiteHeader({
 
       {/* Expandable Navbar Search Bar */}
       {searchOpen && (
-        <div className="bg-white border-t border-[#DED4B2] shadow-sm">
+        <div className="bg-white border-t border-[#E3E6DF] shadow-sm">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 space-y-3">
             <form onSubmit={handleSearchSubmit} className="flex items-center gap-2">
               <div className="relative flex-1">
@@ -267,7 +267,7 @@ export function SiteHeader({
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#f5f0de] border-t border-[#DED4B2] px-4 py-4 space-y-1">
+        <div className="md:hidden bg-white border-t border-[#E3E6DF] px-4 py-4 space-y-1">
           {navLinks.map((link) => {
             const active =
               link.id === 'catalog' ? isDataActive : currentPage === link.id;
@@ -282,7 +282,7 @@ export function SiteHeader({
                 className={`block px-3 py-2.5 rounded-md text-sm font-medium ${
                   active
                     ? 'bg-[#406246] text-white font-semibold'
-                    : 'text-[#243329] hover:bg-[#E8E0C5]'
+                    : 'text-[#243329] hover:bg-[#F7F8F5]'
                 }`}
               >
                 {link.label}
