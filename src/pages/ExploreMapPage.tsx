@@ -11,6 +11,7 @@ import {
   Navigation,
   RotateCcw,
   Search,
+  SlidersHorizontal,
   Wallet,
 } from 'lucide-react';
 import {
@@ -51,6 +52,12 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
   const [selectedCategory, setSelectedCategory] = useState<'All' | PlaceCategory>('All');
   const [selectedBudget, setSelectedBudget] = useState<'All' | BudgetTier>('All');
   const [openNowOnly, setOpenNowOnly] = useState<boolean>(false);
+  const [filtersOpen, setFiltersOpen] = useState<boolean>(false);
+
+  const activeFilterCount =
+    (selectedCategory !== 'All' ? 1 : 0) +
+    (selectedBudget !== 'All' ? 1 : 0) +
+    (openNowOnly ? 1 : 0);
 
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {
@@ -420,8 +427,8 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
       </div>
 
       {/* Filter Bar Card */}
-      <div className="bg-white border border-[#E3E6DF] rounded-2xl p-4 sm:p-5 space-y-3.5 shadow-2xs">
-        {/* Row 1: Search + Subdistrict + Sort */}
+      <div className="bg-white border border-[#E3E6DF] rounded-2xl p-4 sm:p-5 space-y-4 shadow-2xs">
+        {/* Single Row: Search + Subdistrict + Sort + Filters Button */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3">
           <div className="relative flex-1">
             <label htmlFor="explore-search-input" className="sr-only">
@@ -479,88 +486,133 @@ export function ExploreMapPage({ onSelectDataset }: ExploreMapPageProps) {
                 <option value="recently-checked">recently checked</option>
               </select>
             </div>
+
+            {/* Combined Filters Toggle Button beside recommended */}
+            <button
+              type="button"
+              onClick={() => setFiltersOpen((prev) => !prev)}
+              aria-expanded={filtersOpen}
+              className={`inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-full border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                filtersOpen || activeFilterCount > 0
+                  ? 'bg-[#406246] text-white border-[#406246]'
+                  : 'bg-[#F7F8F5] text-[#243329] border-[#E3E6DF] hover:border-[#406246]'
+              }`}
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Filters</span>
+              {activeFilterCount > 0 && (
+                <span className="ml-0.5 px-1.5 py-0.5 text-[10px] font-bold rounded-full bg-white text-[#406246] tabular-nums">
+                  {activeFilterCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Row 2: Category Pills with Exact Counts */}
-        <div
-          className="flex items-center gap-2 overflow-x-auto pb-1"
-          role="group"
-          aria-label="Filter by place category"
-        >
-          <button
-            type="button"
-            onClick={() => setSelectedCategory('All')}
-            className={`px-3.5 py-1.5 text-xs font-medium rounded-full border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-              selectedCategory === 'All'
-                ? 'bg-[#406246] text-white border-[#406246]'
-                : 'bg-white text-[#243329] border-[#E3E6DF] hover:border-[#406246]'
-            }`}
-          >
-            All Places ({categoryCounts.All})
-          </button>
+        {/* Collapsible Combined Filters Panel */}
+        {filtersOpen && (
+          <div className="pt-4 border-t border-[#ECEFE9] space-y-4">
+            {/* Categories */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-[#243329]">
+                  Category
+                </span>
+                {activeFilterCount > 0 && (
+                  <button
+                    type="button"
+                    onClick={resetAllFilters}
+                    className="inline-flex items-center gap-1 text-xs font-medium text-[#406246] hover:underline cursor-pointer"
+                  >
+                    <RotateCcw className="w-3 h-3" aria-hidden="true" />
+                    <span>Clear filters</span>
+                  </button>
+                )}
+              </div>
 
-          {PLACE_CATEGORIES.map((category) => {
-            const active = selectedCategory === category;
-            return (
-              <button
-                key={category}
-                type="button"
-                onClick={() => setSelectedCategory(category)}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-full border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                  active
-                    ? 'bg-[#406246] text-white border-[#406246]'
-                    : 'bg-white text-[#243329] border-[#E3E6DF] hover:border-[#406246]'
-                }`}
+              <div
+                className="flex flex-wrap items-center gap-2"
+                role="group"
+                aria-label="Filter by place category"
               >
-                {category} ({categoryCounts[category] || 0})
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Row 3: Budget Pills + Open Now Pill */}
-        <div className="pt-2 border-t border-[#F0F2ED] flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-xs text-[#66736A] mr-1">Budget:</span>
-            {BUDGET_OPTIONS.map((budget) => {
-              const active = selectedBudget === budget;
-              return (
                 <button
-                  key={budget}
                   type="button"
-                  onClick={() => setSelectedBudget(budget)}
-                  className={`px-3 py-1 text-xs font-medium rounded-full border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                    active
-                      ? 'bg-[#243329] text-white border-[#243329]'
-                      : 'bg-white text-[#556259] border-[#E3E6DF] hover:border-[#243329]'
+                  onClick={() => setSelectedCategory('All')}
+                  className={`px-3.5 py-1.5 text-xs font-medium rounded-full border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                    selectedCategory === 'All'
+                      ? 'bg-[#406246] text-white border-[#406246]'
+                      : 'bg-white text-[#243329] border-[#E3E6DF] hover:border-[#406246]'
                   }`}
                 >
-                  {budget}
+                  All Places ({categoryCounts.All})
                 </button>
-              );
-            })}
-          </div>
 
-          <button
-            type="button"
-            onClick={() => setOpenNowOnly((prev) => !prev)}
-            aria-pressed={openNowOnly}
-            className={`inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-medium rounded-full border transition-colors cursor-pointer ${
-              openNowOnly
-                ? 'bg-[#406246] text-white border-[#406246]'
-                : 'bg-white text-[#556259] border-[#E3E6DF] hover:border-[#406246]'
-            }`}
-          >
-            <span
-              className={`w-2 h-2 rounded-full ${
-                openNowOnly ? 'bg-white' : 'bg-[#8C968E]'
-              }`}
-              aria-hidden="true"
-            />
-            <span>Open Now</span>
-          </button>
-        </div>
+                {PLACE_CATEGORIES.map((category) => {
+                  const active = selectedCategory === category;
+                  return (
+                    <button
+                      key={category}
+                      type="button"
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-3.5 py-1.5 text-xs font-medium rounded-full border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                        active
+                          ? 'bg-[#406246] text-white border-[#406246]'
+                          : 'bg-white text-[#243329] border-[#E3E6DF] hover:border-[#406246]'
+                      }`}
+                    >
+                      {category} ({categoryCounts[category] || 0})
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Budget + Open Now */}
+            <div className="pt-3 border-t border-[#F0F2ED] flex flex-wrap items-center justify-between gap-3">
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="text-xs font-semibold text-[#243329] mr-1">
+                  Budget:
+                </span>
+                {BUDGET_OPTIONS.map((budget) => {
+                  const active = selectedBudget === budget;
+                  return (
+                    <button
+                      key={budget}
+                      type="button"
+                      onClick={() => setSelectedBudget(budget)}
+                      className={`px-3 py-1 text-xs font-medium rounded-full border transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+                        active
+                          ? 'bg-[#243329] text-white border-[#243329]'
+                          : 'bg-white text-[#556259] border-[#E3E6DF] hover:border-[#243329]'
+                      }`}
+                    >
+                      {budget}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setOpenNowOnly((prev) => !prev)}
+                aria-pressed={openNowOnly}
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-medium rounded-full border transition-colors cursor-pointer ${
+                  openNowOnly
+                    ? 'bg-[#406246] text-white border-[#406246]'
+                    : 'bg-white text-[#556259] border-[#E3E6DF] hover:border-[#406246]'
+                }`}
+              >
+                <span
+                  className={`w-2 h-2 rounded-full ${
+                    openNowOnly ? 'bg-white' : 'bg-[#8C968E]'
+                  }`}
+                  aria-hidden="true"
+                />
+                <span>Open Now</span>
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Showing Count */}

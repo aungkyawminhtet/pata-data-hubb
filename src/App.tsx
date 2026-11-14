@@ -133,7 +133,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#EBF0EC] text-[#243329]">
-      <SiteHeader currentPage={currentPage} onNavigate={navigateTo} />
+      <SiteHeader
+        currentPage={currentPage}
+        datasets={allDatasets}
+        onNavigate={navigateTo}
+        onSearchCatalog={searchCatalog}
+        onSelectDataset={openDataset}
+      />
 
       <main className="flex-1">
         {currentPage === 'home' && (

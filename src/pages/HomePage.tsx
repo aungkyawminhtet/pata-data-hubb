@@ -133,7 +133,7 @@ export function HomePage({
     <div>
       {/* Full-Bleed Left-Aligned Hero with Automatic Background Carousel */}
       <section
-        className="relative min-h-[520px] lg:min-h-[580px] bg-[#1B2820] flex flex-col justify-between overflow-hidden"
+        className="relative min-h-[540px] lg:min-h-[640px] bg-[#1B2820] flex flex-col justify-between overflow-hidden"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         aria-label="Mae Sai Tourism Intelligence Hero"
@@ -157,27 +157,27 @@ export function HomePage({
           <div className="absolute inset-0 bg-[#1B2820]/55" />
         </div>
 
-        {/* Left-Aligned Hero Content */}
-        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 pt-14 pb-12 lg:pt-20 lg:pb-16">
-          <div className="max-w-2xl space-y-5 text-left">
-            <div className="text-xs font-semibold uppercase tracking-[0.16em] text-white/90">
+        {/* Left-Aligned Enlarged Hero Content occupying balanced vertical proportion */}
+        <div className="relative z-10 flex-1 flex flex-col justify-center w-full px-6 sm:px-10 lg:px-16 pt-12 pb-6 lg:pt-14 lg:pb-8">
+          <div className="max-w-3xl space-y-6 sm:space-y-7 text-left">
+            <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-white/90">
               MAE SAI DISTRICT · CHIANG RAI, NORTHERN THAILAND
             </div>
 
-            <h1 className="font-editorial text-4xl sm:text-5xl lg:text-[60px] font-normal text-white leading-[1.08] tracking-tight">
+            <h1 className="font-editorial text-4xl sm:text-6xl lg:text-[72px] font-normal text-white leading-[1.06] tracking-tight">
               Shared Tourism Intelligence for Mae Sai
             </h1>
 
-            <p className="text-base sm:text-lg text-white/90 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-xl lg:text-[22px] text-white/90 leading-relaxed max-w-2xl">
               Access verified visitor statistics, local business directories, seasonal trail status, and community insights across four Mae Sai sub-districts.
             </p>
 
-            {/* Streamlined Data-Hub Actions (replacing search box) */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            {/* Enlarged Primary Data-Hub Actions */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 type="button"
                 onClick={() => onNavigate('catalog')}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#406246] hover:bg-[#335038] text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#406246] hover:bg-[#335038] text-white text-base font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
               >
                 <span>Explore Data</span>
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -186,7 +186,7 @@ export function HomePage({
               <button
                 type="button"
                 onClick={() => onNavigate('insights')}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white hover:bg-[#f5f0de] text-[#243329] text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white hover:bg-[#f5f0de] text-[#243329] text-base font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer"
               >
                 <span>View Insights</span>
               </button>
@@ -195,7 +195,7 @@ export function HomePage({
         </div>
 
         {/* Bottom-Right Compact Carousel Pill */}
-        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 pb-5 flex justify-end">
+        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 pb-6 flex justify-end">
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#16231B]/80 border border-white/20 text-xs text-white">
             <button
               type="button"

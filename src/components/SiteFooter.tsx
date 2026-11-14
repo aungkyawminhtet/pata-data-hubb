@@ -27,7 +27,7 @@ export function SiteFooter({ onNavigate }: SiteFooterProps) {
                   onClick={() => onNavigate('home')}
                   className="hover:text-[#f5f0de] transition-colors cursor-pointer"
                 >
-                  Overview
+                  Home
                 </button>
               </li>
               <li>
@@ -36,7 +36,7 @@ export function SiteFooter({ onNavigate }: SiteFooterProps) {
                   onClick={() => onNavigate('catalog')}
                   className="hover:text-[#f5f0de] transition-colors cursor-pointer"
                 >
-                  Data Catalog
+                  Explore Data
                 </button>
               </li>
               <li>
@@ -45,16 +45,7 @@ export function SiteFooter({ onNavigate }: SiteFooterProps) {
                   onClick={() => onNavigate('insights')}
                   className="hover:text-[#f5f0de] transition-colors cursor-pointer"
                 >
-                  Insights &amp; Models
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onNavigate('contribute')}
-                  className="hover:text-[#f5f0de] transition-colors cursor-pointer"
-                >
-                  Contribute &amp; API
+                  Insights
                 </button>
               </li>
               <li>
@@ -63,7 +54,16 @@ export function SiteFooter({ onNavigate }: SiteFooterProps) {
                   onClick={() => onNavigate('explore-map')}
                   className="hover:text-[#f5f0de] transition-colors cursor-pointer"
                 >
-                  Explore Mae Sai Map
+                  Explore Mae Sai
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('contribute')}
+                  className="hover:text-[#f5f0de] transition-colors cursor-pointer"
+                >
+                  Contribute
                 </button>
               </li>
             </ul>
